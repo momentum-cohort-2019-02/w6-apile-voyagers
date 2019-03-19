@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from core.models import Site
+from core.models import Post
 from django.views import generic
 
 from django.contrib.auth import login, authenticate
@@ -23,8 +23,8 @@ def register(request):
 
 
 
-class SiteListView(generic.ListView):
+class PostListView(generic.ListView):
     model = Site
 
-class SiteDetailView(generic.DetailView):
+class PostDetailView(generic.DetailView):
     model = Site
