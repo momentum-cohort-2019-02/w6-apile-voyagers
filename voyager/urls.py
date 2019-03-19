@@ -24,8 +24,10 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # path('sites/', views.SiteListView.as_view(), name='sites'),
-    # path('site/<int:pk>', views.SiteDetailView.as_view(), name='site-detail'),
+    path('', views.index, name='index'),
+
+    # path('posts/', views.PostListView.as_view(), name='sites'),
+    # path('post/<int:pk>', views.PostDetailView.as_view(), name='site-detail'),
 
     # url(r'register/$', views.register, name='register'),
 ]

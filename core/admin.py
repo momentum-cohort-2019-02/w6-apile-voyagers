@@ -1,6 +1,6 @@
 from django.contrib import admin
-from core.models import Site
+from core.models import Post
 
 # Register your models here.
-class SiteAdmin(admin.ModelAdmin):
-    list_display = ('site_name')
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('post_name')
