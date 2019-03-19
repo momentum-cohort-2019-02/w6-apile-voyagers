@@ -16,6 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from . import views
+from django.db import models
+from django.urls import reverse
+from django.conf.urls import url
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('sites/', views.SiteListView.as_view(), name='sites'),
+    path('site/<int:pk>', views.SiteDetailView.as_view(), name='site-detail'),
+
+    url(r'register/$', views.register, name='register'),
 ]
