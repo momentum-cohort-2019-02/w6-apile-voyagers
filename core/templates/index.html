@@ -6,9 +6,22 @@
 {% block content %}
 
 
-<center><h2 class="ph5 avenir purple f-headline lh-solid">voyager.</h2>  
-    <h2 class="ph5 bb h4 b--light-gray w-80 bw1 br-pill avenir red i f1">Vote for adventure.</h2></center><br>
-   
-    
+  <div class="h4 ph5 flex items-center bg-light-blue">
+      <center><div><a class="link grow dib white b georgia f1 i no-underline" href="{% url 'index' %}">VOYAGER &nbsp<i class="white fas fa-globe-asia fa-1x"></i></a></div></center>
+      </div>
+  </div>
+  <br>
+  <br>
   
-  {% endblock %}
+
+ <div class="ph5">      
+      <div><code><a class="ph5 br-pill link grow ba b--white bg-gold dib white b georgia f3 lh-copy no-underline" href="{% url 'index' %}">Posts &nbsp &nbsp &nbsp</a></code></div>
+      <div><code><a class="ph5 br-pill link grow ba b--white bg-light-blue dib white b georgia f3 lh-copy no-underline">Register</a></code></div>
+      <div><code><a class="ph5 br-pill link grow ba b--white bg-dark-red dib white b georgia f3 lh-copy no-underline">Login &nbsp &nbsp &nbsp</a></code></div>
+ </div>
+  
+
+  <center><h2 class="georgia ph5 h3 bb w-80 b--light-blue light-blue i f1">vote for your next voyage...</h2></center><br>
+ 
+
+{% endblock %}
