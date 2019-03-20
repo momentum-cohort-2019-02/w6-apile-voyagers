@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+  <div class="h4 ph5 flex items-center bg-light-blue">
+      <center><div><a class="link grow dib white b georgia f1 i no-underline" href="{% url 'index' %}">VOYAGER &nbsp &nbsp &nbsp</a></div></center>
+      </div>
+  </div>
+  <br>
+  <br>
+  
+
+ <div class="ph5">      
+      <div><code><a class="ph5 br-pill link grow ba b--white bg-gold dib white b georgia f3 lh-copy no-underline" href="{% url 'post' %}">Posts &nbsp &nbsp &nbsp</a></code></div>
+      <div><code><a class="ph5 br-pill link grow ba b--white bg-light-blue dib white b georgia f3 lh-copy no-underline">Register</a></code></div>
+      <div><code><a class="ph5 br-pill link grow ba b--white bg-dark-red dib white b georgia f3 lh-copy no-underline">Login &nbsp &nbsp &nbsp</a></code></div>
+ </div>
+  
+
+  <center><h2 class="georgia ph5 h3 bb w-80 b--light-blue light-blue i f1">vote for your next voyage...</h2></center><br>
+ 
+  {% if post_list %}
+  <ul>
+    {% for post in post_list %}
+    <br>
+    <div class="ph6 bb b--light-blue bw1 w-90"><br>
+      <dd><strong><a class="georgia f3 dark-red no-underline link hover-gold" href="{{ post.uRL }}"> <strong>Site: </strong>{{ post.site_name }}</a></strong></dd><br>
+      <dd><a class="georgia f4"> <strong>Destination: </strong>{{ post.destination }}</a></dd><br>
+      <dd><a class="georgia f4"> <strong>Author: </strong>{{ post.author }}</a></dd><br>
+      <dd><a class="georgia f4"> <strong>Description: </strong>{{ post.description }}</a></dd><br>
+      <dd><a class="georgia f4"> <strong>Date Added: </strong>{{ post.date_added }}</a></dd><br>
+      <dd><a class="georgia f4"> <strong>URL: </strong>{{ post.uRL }}</a></dd><br>
+      <!-- <dd><a> <strong>Slug: </strong>{{ post.slug }}</a></dd> -->
+      <br><br><br>
+    </div>
+ 
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no posts listed.</p>
+  {% endif %}  
+
+{% endblock %}

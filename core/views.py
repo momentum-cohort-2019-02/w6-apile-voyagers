@@ -11,15 +11,6 @@ from django.shortcuts import render, redirect
 def index(request):
     """View function for home page of site."""
 
-
-    # num_posts = Post.objects.all().count()  
-
-
-    # context = {
-    #     'num_posts': num_posts,
-        
-    # }
-
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html',)
 
@@ -39,8 +30,8 @@ def register(request):
 
 
 
-# class PostListView(generic.ListView):
-#     model = Site
+class PostListView(generic.ListView):
+    model = Post
 
 # class PostDetailView(generic.DetailView):
 #     model = Site
