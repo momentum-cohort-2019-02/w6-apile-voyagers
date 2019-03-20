@@ -1,4 +1,5 @@
 from django.db import models
+# from slugger import AutoSlugField
 
 # Create your models here.
 class Post(models.Model):
@@ -16,6 +17,9 @@ class Post(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.site_name
+
+    def get_absolute_url(self):
+        return reverse("post_list", kwargs={"pk": self.pk})
 
 class Comment(models.Model):
     user_comment = models.TextField(max_length=1000)
