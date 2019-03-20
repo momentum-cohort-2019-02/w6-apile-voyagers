@@ -24,4 +24,17 @@
   <center><h2 class="georgia ph5 h3 bb w-80 b--light-blue light-blue i f1">vote for your next voyage...</h2></center><br>
  
 
+  {% for post in posts %}
+  <div>
+    <h3>{{ post.site_name }}</h3>
+    {% if post.uRL %}
+      <a href="{{ post.uRL }}">{{ post.uRL }}</a>
+      {% endif %}
+      <div>
+        Description: {{ post.description }}
+      </div>
+  </div>
+
+  {% endfor %}
+
 {% endblock %}
