@@ -7,6 +7,22 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 # Create your views here.
+
+def index(request):
+    """View function for home page of site."""
+
+
+    # num_posts = Post.objects.all().count()  
+
+
+    # context = {
+    #     'num_posts': num_posts,
+        
+    # }
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, 'index.html',)
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -23,8 +39,8 @@ def register(request):
 
 
 
-class PostListView(generic.ListView):
-    model = Site
+# class PostListView(generic.ListView):
+#     model = Site
 
-class PostDetailView(generic.DetailView):
-    model = Site
+# class PostDetailView(generic.DetailView):
+#     model = Site
