@@ -28,12 +28,12 @@
     {% for post in post_list %}
     <br>
     <div class="ph6 bb b--light-blue bw1 w-90"><br>
-      <dd><strong><a class="georgia f3 dark-red no-underline link hover-gold" href="{{ post.uRL }}"> <strong>Site: </strong>{{ post.site_name }}</a></strong></dd><br>
+      <dd><strong><a class="georgia f3 dark-red no-underline link hover-gold" href="{{ post.url }}"> <strong>Site: </strong>{{ post.site_name }}</a></strong></dd><br>
       <dd><a class="georgia f4"> <strong>Destination: </strong>{{ post.destination }}</a></dd><br>
-      <dd><a class="georgia f4"> <strong>Author: </strong>{{ post.author }}</a></dd><br>
+      <dd><a class="georgia f4"> <strong>Author: </strong>{{ post.author.name }}</a></dd><br>
       <dd><a class="georgia f4"> <strong>Description: </strong>{{ post.description }}</a></dd><br>
       <dd><a class="georgia f4"> <strong>Date Added: </strong>{{ post.date_added }}</a></dd><br>
-      <dd><a class="georgia f4"> <strong>URL: </strong>{{ post.uRL }}</a></dd><br>
+      <dd><a class="georgia f4"> <strong>URL: </strong>{{ post.url }}</a></dd><br>
       <!-- <dd><a> <strong>Slug: </strong>{{ post.slug }}</a></dd> -->
       <br><br><br>
     </div>
