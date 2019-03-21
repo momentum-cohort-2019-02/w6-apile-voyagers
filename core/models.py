@@ -16,8 +16,8 @@ class Author(models.Model):
 
 class Post(models.Model):
     """Model representing a travel or vacation website."""
-    site_name = models.CharField(max_length=200, default='N/A')
     destination = models.CharField(max_length=200, default='N/A')
+    site_name = models.CharField(max_length=200, default='N/A')
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = models.TextField(max_length=1000, default='N/A')
     date_added = models.DateTimeField(auto_now_add=True)
