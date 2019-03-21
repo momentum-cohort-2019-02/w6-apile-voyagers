@@ -27,8 +27,8 @@
   {% for post in posts %}
   <div>
     <h3>{{ post.site_name }}</h3>
-    {% if post.uRL %}
-      <a href="{{ post.uRL }}">{{ post.uRL }}</a>
+    {% if post.url %}
+      <a href="{{ post.url }}">{{ post.url }}</a>
       {% endif %}
       <div>
         Description: {{ post.description }}

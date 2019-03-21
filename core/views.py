@@ -10,10 +10,13 @@ from django.shortcuts import render, redirect
 
 def index(request):
     """View function for home page of site."""
-
+    posts = Post.objects.all()
     # Render the HTML template index.html with the data in the context variable
-    return render(request, 'index.html',)
-
+    response = render(request, 'index.html', {
+        "posts": posts,
+    })
+    return response
+    
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
