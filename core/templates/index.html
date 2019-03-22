@@ -1,17 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-
-
   
 
-  <center><h2 class="georgia ph5 h3 bb w-80 b--light-blue light-blue i f1">top voyages...</h2></center><br>
+  <center><h2 class="georgia ph5 h3 bb bw1 w-80 b--light-blue light-blue i f1">top destinations</h2></center><br>
  
 
   {% for post in posts %}
-  <div class="w-90 ph6 b--light-blue bb">
-    <div><a class="w-90 georgia gold b f2 lh-copy no-underline link grow dib" href="{{ post.url }}">{{ post.destination }}</a></div>
+  <div class="ph6 bw1 bb b--light-blue">
+    <div><a class="w-60 georgia gold b f2 lh-copy no-underline link dim dib" target="_blank" href="{{ post.url }}">{{ post.destination }}</a></div>
     {% if post.url %}
     {% endif %}<br>
 
@@ -36,14 +33,16 @@
       </div><br>
 
   <div class="flex items-center">
-    <div><code><a class="link grow green fa-2x dib white b"><i class="fas fa-chevron-circle-up"></i></a></code></div>
-    <div><code><a class="link grow dark-red fa-2x dib white b"><i class="fas fa-chevron-circle-down"></i></a></code></div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <div><code><a href="{% url 'comments' post_id=post.id %}"class="ph5 link grow ba b--white bg-light-blue dib white b georgia f4 lh-copy no-underline">Comments</a></code></div><br><br>
+
+    <div><code><a class="link dim green fa-2x dib white b"><i class="fas fa-chevron-circle-up"></i></a></code></div>
+    <div><code><a class="link dim dark-red fa-2x dib white b"><i class="fas fa-chevron-circle-down"></i></a></code></div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <div><code><a href="{% url 'comments' post_id=post.id %}" class="ph5 link dim ba b--white bg-light-blue dib white b georgia ba f4 lh-copy no-underline">Comments</a></code></div><br><br>
   </div><br><br><br>
 
 </div><br><br>
 
-{% endfor %}
+{% endfor %}<br><br>
+<center><div class="georgia light-blue f4">© 2019 Lin Navarro & Ryan Catrine</div><br><br><br><br></center>
+{% endblock %}</center>
 
-{% endblock %}
 

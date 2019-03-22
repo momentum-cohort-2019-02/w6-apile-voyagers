@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from core.models import Post, Comment
+from core.models import Post, Comment, Destinations
 from core.forms import CommentForm
 from django.views import generic
 from django.contrib.auth import login, authenticate
@@ -54,6 +54,10 @@ def register(request):
 
 class PostListView(generic.ListView):
     model = Post
+    paginate_by = 3
+
+class DestinationListView(generic.ListView):
+    model = Destinations
 
 @require_http_methods(['POST'])
 # @login_required
@@ -72,5 +76,3 @@ def new_comment(request, post_id):
     else:
         messages.error(request, 'We had a problem saving your comment.')
     return redirect('comments',post_id=post_id)
-
-

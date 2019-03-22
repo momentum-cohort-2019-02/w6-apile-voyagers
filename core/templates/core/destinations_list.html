@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+  
+  
+
+  <center><h2 class="georgia ph5 h3 bb w-80 bw1 b--gold gold i f1">all destinations</h2></center><br>
+ 
+
+  {% for destination in destinations %}
+  <div class="w-90 ph6 b--light-blue bb">
+    <div><a class="w-90 georgia gold b f2 lh-copy no-underline link grow dib" href="{{ destination.url }}">{{ destination.destination }}</a></div>
+    {% if destination.url %}
+    {% endif %}<br>
+
+</div><br><br>
+
+{% endfor %}
+
+{% endblock %}
+
+</html>
