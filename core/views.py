@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from core.models import Post
+from core.models import Post, Destinations
 from django.views import generic
 
 from django.contrib.auth import login, authenticate
@@ -35,6 +35,7 @@ def register(request):
 
 class PostListView(generic.ListView):
     model = Post
+    paginate_by = 3
 
-# class PostDetailView(generic.DetailView):
-#     model = Site
+class DestinationListView(generic.ListView):
+    model = Destinations

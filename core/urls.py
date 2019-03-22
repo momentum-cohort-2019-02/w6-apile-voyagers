@@ -9,7 +9,7 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     path('posts/', views.PostListView.as_view(), name='posts'),
-    # path('post/<int:pk>', views.PostDetailView.as_view(), name='post-detail'),
+    path('destinations/', views.DestinationListView.as_view(), name='destinations'),
 
     # url('register/$',views.register, name='register'),rvr
 ]

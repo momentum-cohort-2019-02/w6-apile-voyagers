@@ -6,24 +6,34 @@
 {% block content %}
 
 
-  <div class="h4 ph5 flex items-center bg-light-blue">
-      <center><div><a class="link grow dib white b georgia f1 i no-underline" href="{% url 'index' %}">VOYAGER &nbsp<i class="white fas fa-globe-asia fa-1x"></i></a></div></center>
-  </div>
-  
 
- <div class="ph5 flex items-center">      
-      <div><code><a class="ph5 link grow bg-gold dib white b georgia f3 lh-copy no-underline" href="{% url 'index' %}">Post</a></code></div>
-      <div><code><a class="ph5 link grow bg-light-blue dib white b georgia f3 lh-copy no-underline">Register</a></code></div>
-      <div><code><a class="ph5 link grow bg-dark-red dib white b georgia f3 lh-copy no-underline">Login</a></code></div>
+<div class="h4 ph5 flex items-center bg-light-blue">
+    <center><div><a class="link dim dib white georgia b f1 i no-underline" href="{% url 'index' %}">VOYAGER&nbsp<i class="white fas fa-globe-americas fa-1x"></i></a></div></center>
+</div>
+
+
+
+
+<div class="flex items-center"> 
+    <div><code><a class="ph5 h3 flex items-center link bg-gold dim dib white b georgia f3 lh-copy no-underline" href="{% url 'destinations' %}">Destinations</a></code></div>        
+    <div><code><a class="ph5 h3 flex items-center link bg-green dim dib white b georgia f3 lh-copy no-underline" href="{% url 'index' %}">Post</a></code></div>      
+    
+    
+    <div><code><a class="ph5 h3 flex items-center link bg-dark-red dim dib white b georgia f3 lh-copy no-underline" href="">Register</a></code></div>      
+    <div>{% if user.is_authenticated %}<code><a class="ph5 flex items-center h3 link bg-light-blue dim dib white b georgia f3 lh-copy no-underline" href="">Logout</a></code>
+    {% else %}<code><a class="ph5 h3 flex items-center link bg-light-blue dim dib white b georgia f3 lh-copy no-underline" href="">Login</a></code>{% endif %}</div>      
+    <div>{% if user.is_authenticated %}
+        <div class="ph5 h3 flex items-center georgia light-blue f3 lh-copy"><i class="fas fa-user"></i> &nbsp <a class="b">{{ user.get_username }}</a></div>
+        {% endif %}</div>
  </div><br><br>
   
 
-  <center><h2 class="georgia ph5 h3 bb w-80 b--light-blue light-blue i f1">top voyages...</h2></center><br>
+  <center><h2 class="georgia ph5 h3 bb bw1 w-80 b--light-blue light-blue i f1">top destinations</h2></center><br>
  
 
   {% for post in posts %}
-  <div class="w-90 ph6 b--light-blue bb">
-    <div><a class="w-90 georgia gold b f2 lh-copy no-underline link grow dib" href="{{ post.url }}">{{ post.destination }}</a></div>
+  <div class="ph6 bw1 bb b--light-blue">
+    <div><a class="w-60 georgia gold b f2 lh-copy no-underline link dim dib" target="_blank" href="{{ post.url }}">{{ post.destination }}</a></div>
     {% if post.url %}
     {% endif %}<br>
 
@@ -48,15 +58,16 @@
       </div><br>
 
   <div class="flex items-center">
-    <div><code><a class="link grow green fa-2x dib white b"><i class="fas fa-chevron-circle-up"></i></a></code></div>
-    <div><code><a class="link grow dark-red fa-2x dib white b"><i class="fas fa-chevron-circle-down"></i></a></code></div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <div><code><a class="ph5 link grow ba b--white bg-light-blue dib white b georgia f4 lh-copy no-underline">Comments</a></code></div><br><br>
+    <div><code><a class="link dim green fa-2x dib white b"><i class="fas fa-chevron-circle-up"></i></a></code></div>
+    <div><code><a class="link dim dark-red fa-2x dib white b"><i class="fas fa-chevron-circle-down"></i></a></code></div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <div><code><a class="ph5 link dim ba b--white bg-light-blue dib white b georgia ba f4 lh-copy no-underline">Comments</a></code></div><br><br>
   </div><br><br><br>
 
 </div><br><br>
 
-{% endfor %}
+{% endfor %}<br><br>
+<center><div class="georgia light-blue f4">© 2019 Lin Navarro & Ryan Catrine</div><br><br><br><br></center>
+{% endblock %}</center>
 
-{% endblock %}
 
 </html>

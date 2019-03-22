@@ -24,28 +24,21 @@
         {% endif %}</div>
  </div><br><br>
   
+  
 
-  <center><h2 class="georgia ph5 h3 bb w-80 b--light-blue light-blue i f1">vote for your next voyage...</h2></center><br>
+  <center><h2 class="georgia ph5 h3 bb w-80 bw1 b--gold gold i f1">all destinations</h2></center><br>
  
-  {% if post_list %}
-  <ul>
-    {% for post in post_list %}
-    <br>
-    <div class="ph6 bb b--light-blue bw1 w-90"><br>
-      <dd><strong><a class="georgia f3 dark-red no-underline link hover-gold" href="{{ post.url }}"> <strong>Site: </strong>{{ post.site_name }}</a></strong></dd><br>
-      <dd><a class="georgia f4"> <strong>Destination: </strong>{{ post.destination }}</a></dd><br>
-      <dd><a class="georgia f4"> <strong>Author: </strong>{{ post.author.name }}</a></dd><br>
-      <dd><a class="georgia f4"> <strong>Description: </strong>{{ post.description }}</a></dd><br>
-      <dd><a class="georgia f4"> <strong>Date Added: </strong>{{ post.date_added }}</a></dd><br>
-      <dd><a class="georgia f4"> <strong>URL: </strong>{{ post.url }}</a></dd><br>
-      <!-- <dd><a> <strong>Slug: </strong>{{ post.slug }}</a></dd> -->
-      <br><br><br>
-    </div>
- 
-    {% endfor %}
-  </ul>
-  {% else %}
-    <p>There are no posts listed.</p>
-  {% endif %}  
+
+  {% for destination in destinations %}
+  <div class="w-90 ph6 b--light-blue bb">
+    <div><a class="w-90 georgia gold b f2 lh-copy no-underline link grow dib" href="{{ destination.url }}">{{ destination.destination }}</a></div>
+    {% if destination.url %}
+    {% endif %}<br>
+
+</div><br><br>
+
+{% endfor %}
 
 {% endblock %}
+
+</html>

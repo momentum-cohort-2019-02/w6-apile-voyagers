@@ -13,7 +13,6 @@ class Author(models.Model):
         return self.name
 
 
-
 class Post(models.Model):
     """Model representing a travel or vacation website."""
     destination = models.CharField(max_length=200, default='N/A')
@@ -50,8 +49,15 @@ class Vote(models.Model):
         return self.voter + self.post
 
 
+class Destinations(models.Model):
+    """Model representing destinations page."""
+    destination = models.CharField(max_length=200, default='N/A')
+    url = models.TextField(max_length=1000, default='N/A')
+    site_name = models.CharField(max_length=200, default='N/A')
 
-
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.site_name
 
 
 
