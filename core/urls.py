@@ -8,6 +8,8 @@ from django.conf.urls import url
 urlpatterns = [
     path('', views.index, name='index'),
     path('comments/<int:post_id>/', views.comments, name='comments'),
+
     path('new_comment/<int:post_id>/', views.new_comment, name='new_comment'),
     path('destinations/', views.DestinationListView.as_view(), name='destinations'),
+
 ]

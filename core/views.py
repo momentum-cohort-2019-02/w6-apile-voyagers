@@ -76,5 +76,3 @@ def new_comment(request, post_id):
     else:
         messages.error(request, 'We had a problem saving your comment.')
     return redirect('comments',post_id=post_id)
-
-

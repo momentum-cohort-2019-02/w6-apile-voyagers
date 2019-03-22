@@ -17,6 +17,7 @@
       </div>
   
 
+
       <div class="flex items-center"> 
         <div><code><a class="ph5 h3 flex items-center link bg-gold dim dib white b georgia f3 lh-copy no-underline" href="{% url 'destinations' %}">Destinations</a></code></div>        
         <div><code><a class="ph5 h3 flex items-center link bg-green dim dib white b georgia f3 lh-copy no-underline" href="{% url 'index' %}">Post</a></code></div>      
@@ -29,6 +30,15 @@
             <div class="ph5 h3 flex items-center georgia light-blue f3 lh-copy"><i class="fas fa-user"></i> &nbsp <a class="b">{{ user.get_username }}</a></div>
             {% endif %}</div>
      </div><br><br>
+
+
+ <div class="ph5 flex items-center">      
+      <div><code><a class="ph5 link grow bg-gold dib white b georgia f3 lh-copy no-underline" href="{% url 'index' %}">Post</a></code></div>
+      <div><code><a class="ph5 link grow bg-light-blue dib white b georgia f3 lh-copy no-underline">Register</a></code></div>
+      <div><code><a class="ph5 link grow bg-dark-red dib white b georgia f3 lh-copy no-underline">Login</a></code></div>
+ </div><br><br>
+    
+    {% block content %}{% endblock %}</div>
 
 
       
