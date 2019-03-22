@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h3>Comments</h3>
+<div class="mv2" id="post-{{ post.id }}">
+  <div>
+    {{ post.destination }}
+  </div>
+  <div>
+    {{ post.author.name }}
+  </div>
+  <div>
+    {{ post.description}}
+  </div>
+</div>
+
+{% for comment in comments %}
+<div class="mv2" id="comment-{{ comment.id }}">
+  <div>
+    {{ comment.comment }}
+  </div>
+  <div>
+    {{ comment.commenter.name }}
+  </div>
+  <div>
+    {{ comment.date_added }}
+  </div>
+</div>
+{% endfor %}
+
+<form method="POST" action="{% url 'new_comment' post_id=post_id %}" class="mv3">
+  {% csrf_token %}
+  {{ comment_form.as_p }}
+  <button type="submit">Add comment</button>
+</form> 
+
+{% endblock %}

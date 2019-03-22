@@ -1,4 +1,9 @@
 from django import forms
-from core.models import Task
+from core.models import Comment
 
-# class NewPost(forms.Form):
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ['comment']
+    

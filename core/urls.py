@@ -7,9 +7,7 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('', views.index, name='index'),
-
-    path('posts/', views.PostListView.as_view(), name='posts'),
+    path('comments/<int:post_id>/', views.comments, name='comments'),
+    path('new_comment/<int:post_id>/', views.new_comment, name='new_comment'),
     path('destinations/', views.DestinationListView.as_view(), name='destinations'),
-
-    # url('register/$',views.register, name='register'),rvr
 ]
