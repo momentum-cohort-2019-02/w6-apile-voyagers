@@ -10,7 +10,19 @@
   {% load static %}
   <body>
   
-    <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
+    <div class="col-sm-10 ">
+        <div class="h4 ph5 flex items-center bg-light-blue">
+      <center><div><a class="link grow dib white b georgia f1 i no-underline" href="{% url 'index' %}">VOYAGER &nbsp<i class="white fas fa-globe-asia fa-1x"></i></a></div></center>
+      </div>
+  
+
+ <div class="ph5 flex items-center">      
+      <div><code><a class="ph5 link grow bg-gold dib white b georgia f3 lh-copy no-underline" href="{% url 'index' %}">Post</a></code></div>
+      <div><code><a class="ph5 link grow bg-light-blue dib white b georgia f3 lh-copy no-underline">Register</a></code></div>
+      <div><code><a class="ph5 link grow bg-dark-red dib white b georgia f3 lh-copy no-underline">Login</a></code></div>
+ </div><br><br>
+    
+    {% block content %}{% endblock %}</div>
 
   </body>
 
