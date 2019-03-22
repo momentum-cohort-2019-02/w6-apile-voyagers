@@ -51,13 +51,12 @@ def register(request):
     return render(request, 'register.html', {'form': form})
 
 
-
 class PostListView(generic.ListView):
     model = Post
-    paginate_by = 3
 
 class DestinationListView(generic.ListView):
     model = Destinations
+    
 
 @require_http_methods(['POST'])
 # @login_required
