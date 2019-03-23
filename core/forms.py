@@ -1,5 +1,5 @@
 from django import forms
-from core.models import Comment, Author
+from core.models import Comment, User
 
 class CommentForm(forms.ModelForm):
 
@@ -10,7 +10,7 @@ class CommentForm(forms.ModelForm):
 class LoginForm(forms.ModelForm):
 
     class Meta:
-        model = Author
+        model = User
         fields = ['username', 'password']
 
 class UserCreationForm(forms.ModelForm):
@@ -26,7 +26,7 @@ class UserCreationForm(forms.ModelForm):
     # )
 
     class Meta:
-        model = Author
-        fields = ("username", "password", "name")
+        model = User
+        fields = ("username", "password")
 
     

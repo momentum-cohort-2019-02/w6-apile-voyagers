@@ -135,3 +135,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # LOGIN_REDIRECT_URL = '/'
 
 django_heroku.settings(locals())
+
+AUTH_USER_MODEL = 'core.User'

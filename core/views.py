@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from core.models import Author, Post, Comment, Destinations, Postlist
+from core.models import User, Post, Comment, Destinations, Postlist
 from core.forms import CommentForm, UserCreationForm, LoginForm
 from django.views import generic
-from django.contrib.auth import authenticate, logout
+from django.contrib.auth import authenticate, logout, login
 from django.shortcuts import render, redirect
 from django.http import Http404
 from django.contrib import messages
@@ -49,15 +49,16 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
 
-def login(request):
+def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
-        # if form.is_valid():
-        #     author = form.save(commit=False)
-        #     # user = authenticate(username=username, password=raw_password)
-        #     author.save()
-        #     # login(request, user)
-        #     return redirect('index')
+        if form.is_valid():
+            author = User.objects.filter(username=form.data['username'], password=form.data['password'])
+            if author.count()==0:
+                return redirect('register')
+            user = authenticate(username=form.data['username'], password=form.data['password'])
+            login(request, user)
+            return redirect('index')
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})

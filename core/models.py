@@ -1,25 +1,21 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 # from slugger import AutoSlugField
 
 # Create your models here.
 
 
-class Author(models.Model):
-    """Model representing user making a comment, create a post and vote"""
-    name = models.CharField(max_length=200)
-    username = models.CharField(max_length=200, default="")
-    password = models.CharField(max_length=200, default="")
-
-    def __str__(self):
-        return self.name
+class User(AbstractUser):
+    pass
 
 
 class Post(models.Model):
     """Model representing a travel or vacation website."""
     destination = models.CharField(max_length=200, default='N/A')
     site_name = models.CharField(max_length=200, default='N/A')
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField(max_length=1000, default='N/A')
     date_added = models.DateTimeField(auto_now_add=True)
     url = models.TextField(max_length=1000, default='N/A')
@@ -36,7 +32,7 @@ class Post(models.Model):
 class Comment(models.Model):
     """Model representing user making a comment on a post"""
     comment = models.CharField(max_length=2000)
-    commenter = models.ForeignKey(Author, on_delete=models.CASCADE)
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -45,7 +41,7 @@ class Comment(models.Model):
 
 class Vote(models.Model):
     """Model representing a user voting on a post"""
-    voter = models.ForeignKey(Author, on_delete=models.CASCADE)
+    voter = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
     def __str__(self):
