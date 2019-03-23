@@ -1,11 +1,9 @@
 from django.shortcuts import render
-from core.models import Post, Comment, Destinations
-from core.forms import CommentForm
+from core.models import Author, Post, Comment, Destinations, Postlist
+from core.forms import CommentForm, UserCreationForm
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from core.forms import CommentForm
 from django.http import Http404
 from django.contrib import messages
 from django.views.decorators.http import require_http_methods
@@ -40,12 +38,11 @@ def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('home')
+            author = form.save(commit=False)
+            # user = authenticate(username=username, password=raw_password)
+            author.save()
+            # login(request, user)
+            return redirect('index')
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
@@ -56,6 +53,9 @@ class PostListView(generic.ListView):
 
 class DestinationListView(generic.ListView):
     model = Destinations
+
+class PostlistListView(generic.ListView):
+    model = Postlist
     
 
 @require_http_methods(['POST'])

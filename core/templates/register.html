@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<center><h2 class="georgia ph5 h3 bb bw1 w-80 b--red red i f1">register</h2></center><br>
+
+<form method="POST" action="{% url 'register' %}" class="mv3 w-60 ph5 georgia">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+  </form> 
+  
+  {% endblock %}
+
