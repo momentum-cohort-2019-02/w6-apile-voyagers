@@ -8,6 +8,8 @@ from django.urls import reverse
 class Author(models.Model):
     """Model representing user making a comment, create a post and vote"""
     name = models.CharField(max_length=200)
+    username = models.CharField(max_length=200, default="")
+    password = models.CharField(max_length=200, default="")
 
     def __str__(self):
         return self.name
@@ -51,6 +53,17 @@ class Vote(models.Model):
 
 
 class Destinations(models.Model):
+    """Model representing destinations page."""
+    destination = models.CharField(max_length=200, default='N/A')
+    url = models.TextField(max_length=1000, default='N/A')
+    site_name = models.CharField(max_length=200, default='N/A')
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.site_name
+
+
+class Postlist(models.Model):
     """Model representing destinations page."""
     destination = models.CharField(max_length=200, default='N/A')
     url = models.TextField(max_length=1000, default='N/A')

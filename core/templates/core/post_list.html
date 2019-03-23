@@ -6,46 +6,23 @@
 {% block content %}
 
 
-<div class="h4 ph5 flex items-center bg-light-blue">
-    <center><div><a class="link dim dib white b georgia f1 i no-underline" href="{% url 'index' %}">VOYAGER &nbsp<i class="white fas fa-globe-asia fa-1x"></i></a></div></center>
-</div>
 
-
-<div class="flex items-center"> 
-    <div><code><a class="ph5 h3 flex items-center link bg-gold dim dib white b georgia f3 lh-copy no-underline" href="{% url 'destinations' %}">Destinations</a></code></div>        
-    <div><code><a class="ph5 h3 flex items-center link bg-green dim dib white b georgia f3 lh-copy no-underline" href="{% url 'index' %}">Post</a></code></div>      
-    
-    
-    <div><code><a class="ph5 h3 flex items-center link bg-dark-red dim dib white b georgia f3 lh-copy no-underline" href="">Register</a></code></div>      
-    <div>{% if user.is_authenticated %}<code><a class="ph5 flex items-center h3 link bg-light-blue dim dib white b georgia f3 lh-copy no-underline" href="">Logout</a></code>
-    {% else %}<code><a class="ph5 h3 flex items-center link bg-light-blue dim dib white b georgia f3 lh-copy no-underline" href="">Login</a></code>{% endif %}</div>      
-    <div>{% if user.is_authenticated %}
-        <div class="ph5 h3 flex items-center georgia light-blue f3 lh-copy"><i class="fas fa-user"></i> &nbsp <a class="b">{{ user.get_username }}</a></div>
-        {% endif %}</div>
- </div><br><br>
+  
   
 
-  <center><h2 class="georgia ph5 h3 bb w-80 b--light-blue light-blue i f1">vote for your next voyage...</h2></center><br>
+  <center><h2 class="georgia ph5 h3 bb w-80 bw1 b--gold gold i f1">all destinations</h2></center><br>
  
-  {% if post_list %}
-  <ul>
-    {% for post in post_list %}
-    <br>
-    <div class="ph6 bb b--light-blue bw1 w-90"><br>
-      <dd><strong><a class="georgia f3 dark-red no-underline link hover-gold" href="{{ post.url }}"> <strong>Site: </strong>{{ post.site_name }}</a></strong></dd><br>
-      <dd><a class="georgia f4"> <strong>Destination: </strong>{{ post.destination }}</a></dd><br>
-      <dd><a class="georgia f4"> <strong>Author: </strong>{{ post.author.name }}</a></dd><br>
-      <dd><a class="georgia f4"> <strong>Description: </strong>{{ post.description }}</a></dd><br>
-      <dd><a class="georgia f4"> <strong>Date Added: </strong>{{ post.date_added }}</a></dd><br>
-      <dd><a class="georgia f4"> <strong>URL: </strong>{{ post.url }}</a></dd><br>
-      <!-- <dd><a> <strong>Slug: </strong>{{ post.slug }}</a></dd> -->
-      <br><br><br>
-    </div>
- 
-    {% endfor %}
-  </ul>
-  {% else %}
-    <p>There are no posts listed.</p>
-  {% endif %}  
+
+  {% for post in posts %}
+  <div class="ph6 bw1 bb b--light-blue">
+    <div><a class="w-60 georgia gold b f2 lh-copy no-underline link dim dib" target="_blank" href="{{ post.url }}">{{ post.destination }}</a></div>
+    {% if post.url %}
+    {% endif %}<br>
+
+</div><br><br>
+
+{% endfor %}
 
 {% endblock %}
+
+</html>

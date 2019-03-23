@@ -1,8 +1,8 @@
 
 {% extends "base.html" %}
 {% block content %}
-<h3>Comments</h3>
-<div class="mv2" id="post-{{ post.id }}">
+<center><h2 class="georgia ph5 h3 bb w-80 bw1 b--light-blue light-blue i f1">leave a comment</h2></center><br>
+<div class="mv2 w-60 ph5 georgia" id="post-{{ post.id }}">
   <div>
     {{ post.destination }}
   </div>
@@ -15,7 +15,7 @@
 </div>
 
 {% for comment in comments %}
-<div class="mv2" id="comment-{{ comment.id }}">
+<div class="mv2 w-60 ph5 georgia" id="comment-{{ comment.id }}">
   <div>
     {{ comment.comment }}
   </div>
@@ -28,7 +28,7 @@
 </div>
 {% endfor %}
 
-<form method="POST" action="{% url 'new_comment' post_id=post_id %}" class="mv3">
+<form method="POST" action="{% url 'new_comment' post_id=post_id %}" class="mv3 w-60 ph5 georgia">
   {% csrf_token %}
   {{ comment_form.as_p }}
   <button type="submit">Add comment</button>
