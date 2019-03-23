@@ -24,8 +24,8 @@
         
         
         <div><code><a class="ph5 h3 flex items-center link bg-dark-red dim dib white b georgia f3 lh-copy no-underline" href="{% url 'register' %}">Register</a></code></div>      
-        <div>{% if user.is_authenticated %}<code><a class="ph5 flex items-center h3 link bg-light-blue dim dib white b georgia f3 lh-copy no-underline" href="">Logout</a></code>
-        {% else %}<code><a class="ph5 h3 flex items-center link bg-light-blue dim dib white b georgia f3 lh-copy no-underline" href="">Login</a></code>{% endif %}</div>      
+        <div>{% if user.is_authenticated %}<code><a class="ph5 flex items-center h3 link bg-light-blue dim dib white b georgia f3 lh-copy no-underline" href="{% url 'logout' %}">Logout</a></code>
+        {% else %}<code><a class="ph5 h3 flex items-center link bg-light-blue dim dib white b georgia f3 lh-copy no-underline" href="{% url 'login' %}">Login</a></code>{% endif %}</div>      
         <div>{% if user.is_authenticated %}
             <div class="ph5 h3 flex items-center georgia light-blue f3 lh-copy"><i class="fas fa-user"></i> &nbsp <a class="b">{{ user.get_username }}</a></div>
             {% endif %}</div>

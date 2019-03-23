@@ -7,6 +7,12 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['comment']
 
+class LoginForm(forms.ModelForm):
+
+    class Meta:
+        model = Author
+        fields = ['username', 'password']
+
 class UserCreationForm(forms.ModelForm):
     """
     A form that creates a user, with no privileges, from the given username and

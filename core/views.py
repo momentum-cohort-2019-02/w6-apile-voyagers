@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from core.models import Author, Post, Comment, Destinations, Postlist
-from core.forms import CommentForm, UserCreationForm
+from core.forms import CommentForm, UserCreationForm, LoginForm
 from django.views import generic
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import authenticate, logout
 from django.shortcuts import render, redirect
 from django.http import Http404
 from django.contrib import messages
 from django.views.decorators.http import require_http_methods
+
+
 
 # Create your views here.
 
@@ -47,6 +49,24 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
 
+def login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        # if form.is_valid():
+        #     author = form.save(commit=False)
+        #     # user = authenticate(username=username, password=raw_password)
+        #     author.save()
+        #     # login(request, user)
+        #     return redirect('index')
+    else:
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form})
+
+def user_logout(request):
+    if request.user.is_authenticated:
+       logout(request)
+    return redirect('index')
+
 
 class PostListView(generic.ListView):
     model = Post
@@ -57,7 +77,6 @@ class DestinationListView(generic.ListView):
 class PostlistListView(generic.ListView):
     model = Postlist
     
-
 @require_http_methods(['POST'])
 # @login_required
 def new_comment(request, post_id):
