@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.http import Http404
 from django.contrib import messages
 from django.views.decorators.http import require_http_methods
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -49,7 +50,7 @@ class PostlistListView(generic.ListView):
     model = Postlist
     
 @require_http_methods(['POST'])
-# @login_required
+@login_required
 def new_comment(request, post_id):
     post = Post.objects.get(id=post_id)
     if post is None:
