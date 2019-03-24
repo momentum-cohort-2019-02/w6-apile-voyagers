@@ -61,7 +61,7 @@ def new_comment(request, post_id):
     if form.is_valid():
         comment = form.save(commit=False)
         comment.post = post
-        comment.commenter = post.author #TODO: post.author should be replaced with the logged in user
+        comment.commenter = request.user
         comment.save()
     else:
         messages.error(request, 'We had a problem saving your comment.')
