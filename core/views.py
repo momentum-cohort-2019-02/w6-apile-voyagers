@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from core.models import User, Post, Comment, Destinations, Postlist
-from core.forms import CommentForm, UserCreationForm, LoginForm
+from core.forms import CommentForm
 from django.views import generic
 from django.contrib.auth import authenticate, logout, login
 from django.shortcuts import render, redirect
@@ -36,37 +36,7 @@ def comments(request, post_id):
     })
     return response  
     
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            author = form.save(commit=False)
-            # user = authenticate(username=username, password=raw_password)
-            author.save()
-            # login(request, user)
-            return redirect('index')
-    else:
-        form = UserCreationForm()
-    return render(request, 'register.html', {'form': form})
 
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            author = User.objects.filter(username=form.data['username'], password=form.data['password'])
-            if author.count()==0:
-                return redirect('register')
-            user = authenticate(username=form.data['username'], password=form.data['password'])
-            login(request, user)
-            return redirect('index')
-    else:
-        form = LoginForm()
-    return render(request, 'login.html', {'form': form})
-
-def user_logout(request):
-    if request.user.is_authenticated:
-       logout(request)
-    return redirect('index')
 
 
 class PostListView(generic.ListView):
