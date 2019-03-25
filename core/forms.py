@@ -13,7 +13,7 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['comment']
 
-class NewPostForm(forms.Form):
+class NewPostForm(forms.ModelForm):
     destination = forms.CharField(
         label='Destination',
         max_length=200,
@@ -25,7 +25,7 @@ class NewPostForm(forms.Form):
         widget=forms.TextInput(attrs={'placeholder': 'add website'}))
    
     description = forms.CharField(
-        label='Destination',
+        label='Description',
         max_length=200,
         widget=forms.TextInput(attrs={'placeholder': 'add description'}))
     
@@ -34,27 +34,13 @@ class NewPostForm(forms.Form):
         max_length=200,
        )
     
+    class Meta:
+        model = Post
+        fields = ['destination', 'site_name', 'description', 'url'] 
+    # def save(self, **kwargs):
+    #     if self.is_valid():
+    #         post_props  = {"description": self.cleaned_data['post']}
+    #         post_props.update(kwargs)
+    #         return Post.objects.create(**post_props)
+    #     return None
 
-    def save(self, **kwargs):
-        if self.is_valid():
-            post_props  = {"description": self.cleaned_data['post']}
-            post_props.update(kwargs)
-            return Post.objects.create(**post_props)
-        return None
-
-
-# class EditPostForm(forms.ModelForm):
-
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         self.label_suffix = None
-
-#     class Meta:
-#         model = Post
-#         fields = ['description', 'due_on', 'show_on']
-#         widgets = {
-#             'description': forms.TextInput(attrs={'class': 'w-100 mv2 pa2 f4'}),
-#         }
- 
-
-   

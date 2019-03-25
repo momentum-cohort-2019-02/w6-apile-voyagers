@@ -12,5 +12,8 @@ urlpatterns = [
     path('new_comment/<int:post_id>/', views.new_comment, name='new_comment'),
     path('destinations/', views.DestinationListView.as_view(), name='destinations'),
     path('postlist/', views.PostListView.as_view(), name='postlist'),
+    path('new_post/', views.new_post, name='new_post'),
+    path('post/', views.post, name='post'),
+    
 
 ]

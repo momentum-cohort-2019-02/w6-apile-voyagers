@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if user.is_authenticated %}<form method="POST" action="{% url 'new_post' %}" class="mv3 w-60 ph5 georgia">
+  {% csrf_token %}
+  {{ post_form.as_p }}
+  <button type="submit">Add post</button>
+</form> 
+
+{% endif %}
+{% endblock %}

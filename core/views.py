@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from core.models import User, Post, Comment, Destinations, Postlist
-from core.forms import CommentForm
+from core.forms import CommentForm, NewPostForm
 from django.views import generic
 from django.contrib.auth import authenticate, logout, login
 from django.shortcuts import render, redirect
@@ -49,12 +49,20 @@ class PostListView(generic.ListView):
 class DestinationListView(generic.ListView):
     model = Destinations
 
+def post(request):
+    form = NewPostForm()
+    # Render the HTML template index.html with the data in the context variable
+    response = render(request, 'core/post.html', {
+       
+        "post_form": form
+    })
+    return response 
 
 @require_http_methods(['POST'])
 @login_required
 def new_post(request):
 
-    form = PostForm(request.POST)
+    form = NewPostForm(request.POST)
 
     if form.is_valid():
         post = form.save(commit=False)
