@@ -42,12 +42,10 @@ def comments(request, post_id):
 
 class PostListView(generic.ListView):
     model = Post
+    paginate_by = 5
 
 class DestinationListView(generic.ListView):
     model = Destinations
-
-class PostlistListView(generic.ListView):
-    model = Postlist
     
 @require_http_methods(['POST'])
 @login_required
