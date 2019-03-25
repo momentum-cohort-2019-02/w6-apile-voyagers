@@ -2,47 +2,13 @@
 
 {% block content %}
   
-
-  <center><h2 class="georgia ph5 h3 bb bw1 w-80 b--light-blue light-blue i f1">top destinations</h2></center><br>
+<br><br><br><br><br><br>
+  <center><div class="georgia ph5 h4 b bw1 w-80 b--light-blue light-blue i f-subheadline">Welcome to VOYAGER</div></center>
+  <center><div class="georgia ph5 h4 b bw1 b--gold gold i f2">Browse destinations, post experiences, share comments.</div></center><br>
  
 
-  {% for post in posts %}
-  <div class="ph6 bw1 bb b--light-blue">
-    <div><a class="w-60 georgia gold b f2 lh-copy no-underline link dim dib" target="_blank" href="{{ post.url }}">{{ post.destination }}</a></div>
-    {% if post.url %}
-    {% endif %}<br>
-
-      <div class="w-90 athelas f4">
-
-        <div>
-          <strong>Site:</strong> {{ post.site_name }}
-        </div><br>
-        <div>
-          <strong>Author:</strong> {{ post.author.username }}
-        </div><br>
-        <div>
-          <strong>Description:</strong> {{ post.description }}
-        </div><br>
-        <div>
-          <strong>Added:</strong> {{ post.date_added }}
-        </div><br>
-        <div>
-          <strong>URL:</strong> {{ post.url }}
-        </div><br>
-
-      </div><br>
-
-  <div class="flex items-center">
-
-    <div><code><a class="link dim green fa-2x dib white b"><i class="fas fa-chevron-circle-up"></i></a></code></div>
-    <div><code><a class="link dim dark-red fa-2x dib white b"><i class="fas fa-chevron-circle-down"></i></a></code></div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <div><code><a href="{% url 'comments' post_id=post.id %}" class="ph5 link dim ba b--white bg-light-blue dib white b georgia ba f4 lh-copy no-underline">Comments</a></code></div><br><br>
-  </div><br><br><br>
-
-</div><br><br>
-
-{% endfor %}<br><br>
-<center><div class="georgia light-blue f4">© 2019 Lin Navarro & Ryan Catrine</div><br><br><br><br></center>
+  <br><br><br><br><br><br>
+<center><div class="georgia light-blue f4">© 2019 Lin Navarro & Ryan Catrine</div><br></center>
 {% endblock %}</center>
 
 
