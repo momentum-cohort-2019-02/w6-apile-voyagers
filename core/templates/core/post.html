@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
+<center><h2 class="georgia ph5 h3 bb w-80 bw1 b--green green i f1">new post</h2></center><br>
+
+
 {% if user.is_authenticated %}<form method="POST" action="{% url 'new_post' %}" class="mv3 w-60 ph5 georgia">
   {% csrf_token %}
   {{ post_form.as_p }}
