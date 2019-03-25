@@ -28,10 +28,11 @@
 </div>
 {% endfor %}
 
-<form method="POST" action="{% url 'new_comment' post_id=post_id %}" class="mv3 w-60 ph5 georgia">
+{% if user.is_authenticated %}<form method="POST" action="{% url 'new_comment' post_id=post_id %}" class="mv3 w-60 ph5 georgia">
   {% csrf_token %}
   {{ comment_form.as_p }}
   <button type="submit">Add comment</button>
 </form> 
 
+{% endif %}
 {% endblock %}

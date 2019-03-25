@@ -20,10 +20,10 @@
 
       <div class="flex items-center"> 
         <div><code><a class="ph5 h3 flex items-center link bg-gold dim dib white b georgia f3 lh-copy no-underline" href="{% url 'destinations' %}">Destinations</a></code></div>        
-        <div><code><a class="ph5 h3 flex items-center link bg-green dim dib white b georgia f3 lh-copy no-underline" href="{% url 'index' %}">Post</a></code></div>      
+        <div><code><a class="ph5 h3 flex items-center link bg-green dim dib white b georgia f3 lh-copy no-underline" href="{% url 'postlist' %}">Post</a></code></div>      
         
         
-        {% comment %} <div><code><a class="ph5 h3 flex items-center link bg-dark-red dim dib white b georgia f3 lh-copy no-underline" href="{% url 'auth_login' %}">Register</a></code></div>       {% endcomment %}
+
         <div>{% if user.is_authenticated %}<code><a class="ph5 flex items-center h3 link bg-light-blue dim dib white b georgia f3 lh-copy no-underline" href="{% url 'auth_logout' %}">Logout</a></code>
         {% else %}<code><a class="ph5 h3 flex items-center link bg-light-blue dim dib white b georgia f3 lh-copy no-underline" href="{% url 'auth_login' %}">Login</a></code>{% endif %}</div>      
         <div>{% if user.is_authenticated %}
@@ -34,8 +34,25 @@
 </div>
 
 
-      
   <div class="col-sm-10 ">{% block content %}{% endblock %}
+
+  {% block pagination %}
+      {% if is_paginated %}
+          <div class="pagination">
+              <span class="page-links">
+                  {% if page_obj.has_previous %}
+                      <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                  {% endif %}
+                  <span class="page-current">
+                      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                  </span>
+                  {% if page_obj.has_next %}
+                      <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                  {% endif %}
+              </span>
+          </div>
+      {% endif %}
+  {% endblock %}
 
     
   </div>

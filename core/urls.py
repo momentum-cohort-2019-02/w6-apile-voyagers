@@ -11,7 +11,6 @@ urlpatterns = [
 
     path('new_comment/<int:post_id>/', views.new_comment, name='new_comment'),
     path('destinations/', views.DestinationListView.as_view(), name='destinations'),
-    path('postlist/', views.PostlistListView.as_view(), name='postlist'),
-  
+    path('postlist/', views.PostListView.as_view(), name='postlist'),
 
 ]
