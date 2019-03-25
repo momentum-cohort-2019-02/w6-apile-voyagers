@@ -43,7 +43,7 @@ class PostListView(generic.ListView):
     model = Post
     paginate_by = 5
     context_object_name = 'posts'
-    queryset = Post.objects.all() 
+    queryset = Post.objects.all().order_by('-date_added')
     template_name = 'core/post_list.html'
 
 class DestinationListView(generic.ListView):
