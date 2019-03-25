@@ -19,10 +19,36 @@
     {% if post.url %}
     {% endif %}<br>
 
+      <div class="w-90 athelas f4">
+
+        <div>
+          <strong>Site:</strong> {{ post.site_name }}
+        </div><br>
+        <div>
+          <strong>Author:</strong> {{ post.author.username }}
+        </div><br>
+        <div>
+          <strong>Description:</strong> {{ post.description }}
+        </div><br>
+        <div>
+          <strong>Added:</strong> {{ post.date_added }}
+        </div><br>
+        <div>
+          <strong>URL:</strong> {{ post.url }}
+        </div><br>
+
+      </div><br>
+
+  <div class="flex items-center">
+
+    <div><code><a class="link dim green fa-2x dib white b"><i class="fas fa-chevron-circle-up"></i></a></code></div>
+    <div><code><a class="link dim dark-red fa-2x dib white b"><i class="fas fa-chevron-circle-down"></i></a></code></div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <div><code><a href="{% url 'comments' post_id=post.id %}" class="ph5 link dim ba b--white bg-light-blue dib white b georgia ba f4 lh-copy no-underline">Comments</a></code></div><br><br>
+  </div><br><br><br>
+
 </div><br><br>
 
 {% endfor %}
-
 {% endblock %}
 
 </html>

@@ -42,6 +42,9 @@ def comments(request, post_id):
 class PostListView(generic.ListView):
     model = Post
     paginate_by = 5
+    context_object_name = 'posts'
+    queryset = Post.objects.all() 
+    template_name = 'core/post_list.html'
 
 class DestinationListView(generic.ListView):
     model = Destinations
