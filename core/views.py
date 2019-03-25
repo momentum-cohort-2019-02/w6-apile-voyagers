@@ -39,13 +39,28 @@ def comments(request, post_id):
     
 
 
-
 class PostListView(generic.ListView):
     model = Post
     paginate_by = 5
 
 class DestinationListView(generic.ListView):
     model = Destinations
+
+
+@require_http_methods(['POST'])
+@login_required
+def new_post(request):
+
+    form = PostForm(request.POST)
+
+    if form.is_valid():
+        post = form.save(commit=False)
+        post.author = request.user
+        post.save()
+    else:
+        messages.error(request, 'We had a problem saving your post.')
+    return redirect('postlist')
+
     
 @require_http_methods(['POST'])
 @login_required
