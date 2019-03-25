@@ -68,3 +68,5 @@ Next, there's polish work to be done -- making sure messages are in place, addin
 - [Faker](https://faker.readthedocs.io/en/master/) and [Mimesis](https://mimesis.readthedocs.io/)
 - [Django-Gravatar](https://github.com/twaddington/django-gravatar/) -- add user avatars!
 - [django-find](https://github.com/knipknap/django-find) -- add search
+
+link to heroku application https://cryptic-tundra-74732.herokuapp.com/core/

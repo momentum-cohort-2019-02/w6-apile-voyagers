@@ -40,6 +40,7 @@ def comments(request, post_id):
 
 
 class PostListView(generic.ListView):
+    
     model = Post
     paginate_by = 5
     context_object_name = 'posts'
@@ -57,7 +58,8 @@ def post(request):
         "post_form": form
     })
     return response 
-
+ 
+ 
 @require_http_methods(['POST'])
 @login_required
 def new_post(request):
