@@ -4,17 +4,17 @@
         {% block title %}{% trans "" %}{% endblock %}
         
         {% block content %}
-        <form method="post" action="">
+        <div class="ph5"><form method="post" action="">
             {% csrf_token %}
             {{ form.as_p }}
-            <input class= "ph4 ba br-pill link b avenir f3 lh-copy no-underline purple hover-light-blue" type="submit" value="{% trans 'Log in' %}" />
-            <input class="ph5 link red b avenir f3 lh-copy no-underline" type="hidden" name="next" value="{{ next }}" />
+            <input class= "ph4 ba link b georgia ba bg--gold f3 lh-copy no-underline gold hover-light-blue" type="submit" value="{% trans 'Log in' %}" />
+            <input class="ph5 link gold b georgia f3 lh-copy no-underline" type="hidden" name="next" value="{{ next }}" />
         </form>
         
-        <p class="ph5 link red b avenir f3 lh-copy no-underline">{% trans "Forgot your password?" %} <a class= "ph4 ba br-pill no-underline hover-light-blue
+        <p class="ph5 link gold b georgia f3 lh-copy no-underline">{% trans "Forgot your password?" %} <a class= "ph4 ba no-underline hover-light-blue
             hover-light-blue" href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a></p>
-        <p class="ph5 link red b avenir f3 lh-copy no-underline">{% trans "Not a member?" %} <a class= "ph4 ba br-pill no-underline hover-light-blue
-            hover-light-blue" href="{% url 'registration_register' %}">{% trans "Register" %}</a></p>
+        <p class="ph5 link gold b georgia f3 lh-copy no-underline">{% trans "Not a member?" %} <a class= "ph4 ba no-underline hover-light-blue
+            hover-light-blue" href="{% url 'registration_register' %}">{% trans "Register" %}</a></p></div>
         {% endblock %}
         
         
